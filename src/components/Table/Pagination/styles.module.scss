@@ -1,7 +1,9 @@
 .paginationContainer {
   display: flex;
   column-gap: 0.5rem;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .paginationButton {

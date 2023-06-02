@@ -1,0 +1,39 @@
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.table {
+  width: 100%;
+  min-width: 30rem;
+}
+
+.loading {
+  font-size: 2rem;
+  width: 100%;
+}
+
+.nameCell {
+  width: 60%;
+}
+
+.contactCell {
+  width: 30%;
+}
+
+.actionCell {
+  width: 10%;
+}
+
+.paginationContainer {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
