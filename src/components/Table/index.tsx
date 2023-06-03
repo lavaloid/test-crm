@@ -22,7 +22,7 @@ export const Table = (props: Props) => {
     if (!loaded) {
       return (
         <tr>
-          <td colSpan={3}>
+          <td colSpan={4}>
             <Loading className={styles.loading} />
           </td>
         </tr>
@@ -31,7 +31,7 @@ export const Table = (props: Props) => {
     if (data.length === 0) {
       return (
         <tr>
-          <td colSpan={3}>No clients yet.</td>
+          <td colSpan={4}>No clients yet.</td>
         </tr>
       );
     }
@@ -40,6 +40,9 @@ export const Table = (props: Props) => {
       .map((value) => (
         <tr key={value.id}>
           <td className={styles.nameCell}>{value.name}</td>
+          <td className={styles.statusCell}>
+            {value.status[0] + value.status.slice(1, undefined).toLowerCase()}
+          </td>
           <td className={styles.contactCell}>{value.contact}</td>
           <td className={styles.actionCell}>Details</td>
         </tr>
@@ -53,6 +56,7 @@ export const Table = (props: Props) => {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Status</th>
               <th>Contact</th>
               <th>Action</th>
             </tr>
