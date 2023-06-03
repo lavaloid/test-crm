@@ -7,9 +7,9 @@ import { Dispatch, SetStateAction } from "react";
 type Props = {
   statusFilter?: string;
   setStatusFilter: Dispatch<SetStateAction<string>>;
-  startDate?: Date;
+  startDate: Date | null;
   setStartDate: Dispatch<SetStateAction<Date | null>>;
-  endDate?: Date;
+  endDate: Date | null;
   setEndDate: Dispatch<SetStateAction<Date | null>>;
 };
 

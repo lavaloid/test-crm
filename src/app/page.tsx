@@ -10,9 +10,9 @@ import styles from "./page.module.css";
 const Page = () => {
   const [formOpen, setFormOpen] = useState<boolean>(false);
 
-  const [statusFilter, setStatusFilter] = useState<string | undefined>();
-  const [startDate, setStartDate] = useState<Date | undefined>();
-  const [endDate, setEndDate] = useState<Date | undefined>();
+  const [statusFilter, setStatusFilter] = useState<string>("NONE");
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
 
   const { getMany, insert, loaded } = useClientDatabase();
 

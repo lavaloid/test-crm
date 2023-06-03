@@ -8,7 +8,7 @@ import 'react-calendar/dist/Calendar.css';
 import styles from "./styles.module.scss";
 
 type Props = {
-  date?: Date;
+  date: Date | null;
   setDate: Dispatch<SetStateAction<Date | null>>;
 };
 
