@@ -35,13 +35,15 @@ export const Table = (props: Props) => {
         </tr>
       );
     }
-    return data.map((value) => (
-      <tr key={value.id}>
-        <td className={styles.nameCell}>{value.name}</td>
-        <td className={styles.contactCell}>{value.contact}</td>
-        <td className={styles.actionCell}>Details</td>
-      </tr>
-    ));
+    return data
+      .slice(activePage * PAGE_SIZE, (activePage + 1) * PAGE_SIZE)
+      .map((value) => (
+        <tr key={value.id}>
+          <td className={styles.nameCell}>{value.name}</td>
+          <td className={styles.contactCell}>{value.contact}</td>
+          <td className={styles.actionCell}>Details</td>
+        </tr>
+      ));
   };
 
   return (
