@@ -5,6 +5,7 @@ import { Client } from "@/data";
 import styles from "./styles.module.scss";
 import { Loading } from "../Loading";
 import { Pagination } from "./Pagination";
+import Link from "next/link";
 
 type Props = {
   data: Client[];
@@ -48,7 +49,9 @@ export const Table = (props: Props) => {
             {value.status[0] + value.status.slice(1, undefined).toLowerCase()}
           </td>
           <td className={styles.contactCell}>{value.contact}</td>
-          <td className={styles.actionCell}>Details</td>
+          <td className={styles.actionCell}>
+            <Link href={`/${value.id}`}>Details</Link>
+          </td>
         </tr>
       ));
   };
