@@ -58,7 +58,6 @@ const Page = ({ params }: PageProps) => {
           <Select
             value={status}
             setValue={(status) => {
-              console.log("updated to " + status);
               update(id, { status: status as StatusType });
             }}
             options={[
