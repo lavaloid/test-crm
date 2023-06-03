@@ -1,0 +1,25 @@
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  width: 5rem;
+  column-gap: 0.4rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: var(--secondary-bg);
+  }
+}
+
+/** Tablet, desktop */
+@media (min-width: 576px) {
+  .pageContainer {
+    margin: auto;
+    max-width: 50rem;
+    min-height: 100vh;
+  }
+}
