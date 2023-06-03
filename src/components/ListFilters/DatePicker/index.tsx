@@ -4,9 +4,11 @@ import { Popover2 } from "@blueprintjs/popover2";
 import dayjs from "dayjs";
 import Calendar from "react-calendar";
 
+import styles from "./styles.module.scss";
+
 type Props = {
-  date: Date;
-  setDate: Dispatch<SetStateAction<Date>>;
+  date?: Date;
+  setDate: Dispatch<SetStateAction<Date | null>>;
 };
 
 export const DatePicker = (props: Props) => {
@@ -16,26 +18,32 @@ export const DatePicker = (props: Props) => {
   const [popoverOpen, setPopoverOpen] = useState<boolean>(false);
 
   return (
-    <Popover2
-      interactionKind="click"
-      isOpen={popoverOpen}
-      onInteraction={(state) => setPopoverOpen(state)}
-      onClosed={() => buttonRef.current?.focus()}
-      autoFocus={false}
-      content={
-        <Calendar
-          onChange={(value) => {
-            setDate?.(value as Date);
-            setPopoverOpen(false);
-            buttonRef.current?.focus();
-          }}
-        />
-      }
-    >
-      <Button fill role="" icon="calendar" elementRef={buttonRef}>
-        {date ? dayjs(date).format("YYYY/MM/DD") : "YYYY/MM/DD"}
-      </Button>
-      <Button icon="cross-circle" disabled={!date} />
-    </Popover2>
+    <div className={styles.dateContainer}>
+      <Popover2
+        interactionKind="click"
+        isOpen={popoverOpen}
+        onInteraction={(state) => setPopoverOpen(state)}
+        onClosed={() => buttonRef.current?.focus()}
+        autoFocus={false}
+        content={
+          <Calendar
+            onChange={(value) => {
+              setDate?.(value as Date);
+              setPopoverOpen(false);
+              buttonRef.current?.focus();
+            }}
+          />
+        }
+      >
+        <Button fill role="" icon="calendar" elementRef={buttonRef}>
+          {date ? dayjs(date).format("YYYY/MM/DD") : "YYYY/MM/DD"}
+        </Button>
+      </Popover2>
+      <Button
+        icon="cross-circle"
+        disabled={!date}
+        onClick={() => setDate(null)}
+      />
+    </div>
   );
 };
