@@ -6,8 +6,6 @@ import {
   FormGroup,
   InputGroup,
   Intent,
-  OverlayToaster,
-  ToasterInstance,
 } from "@blueprintjs/core";
 import {
   ChangeEvent,
@@ -18,8 +16,6 @@ import {
 } from "react";
 import { isValidPhoneNumber } from "react-phone-number-input";
 
-export let toaster: OverlayToaster;
-
 type Props = {
   onSubmit: (data: ClientInput) => void;
   onClose: () => void;
@@ -27,14 +23,6 @@ type Props = {
 
 export const CreateForm = (props: Props) => {
   const { onSubmit, onClose } = props;
-
-  // createRoot(document.getElementById('toaster')!).render(
-  //   <OverlayToaster
-  //     ref={instance => {
-  //       toaster = instance!;
-  //     }}
-  //   />,
-  // );
 
   type FieldData<T> = {
     value?: T;
@@ -100,14 +88,15 @@ export const CreateForm = (props: Props) => {
         e.preventDefault();
 
         // Check no errors
-        if (name.error || contact.error || assignedUser.error) {
-          // TODO: Show error message
-          // toaster.show({
-          //   intent: "danger",
-          //   message:
-          //     "Failed to create client. Please check for missing or invalid values.",
-          // });
-          console.log('error')
+        if (
+          name.error ||
+          contact.error ||
+          assignedUser.error ||
+          !name.touched ||
+          !contact.touched ||
+          !assignedUser.touched
+        ) {
+          console.log("error");
         } else {
           onSubmit({
             avatar: avatar.base64Data as string,
@@ -116,6 +105,7 @@ export const CreateForm = (props: Props) => {
             contact: contact.value as string,
             assignedUser: assignedUser.value as string,
           });
+          onClose();
         }
       }}
     >
