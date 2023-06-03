@@ -17,6 +17,14 @@ The clients page shows the detailed information about the client, including thei
 
 <img src="docs/2.png">
 
+## Remarks
+
+There are several aspects that may be improved from this project:
+- Checks on the date created filter to prevent the start date from being later than the end date
+- Minor style adjustments (e.g. centering the client creation dialog box, making the select component size more consistent)
+- Refactoring the CreateForm component logic (for example, using react-hook-form)
+- Adding notifications after successful/unsuccessful operations
+
 ## Getting Started
 
 First, run the development server:
