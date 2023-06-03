@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HTMLTable } from "@blueprintjs/core";
 
 import { Client } from "@/data";
@@ -17,6 +17,10 @@ export const Table = (props: Props) => {
   const PAGE_SIZE = 20;
   const [activePage, setActivePage] = useState<number>(0);
   const pageCount = Math.ceil(data.length / PAGE_SIZE);
+
+  useEffect(() => {
+    setActivePage(0);
+  }, [data]);
 
   const renderBody = () => {
     if (!loaded) {
