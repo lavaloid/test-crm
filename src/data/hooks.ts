@@ -86,10 +86,11 @@ export const useClientDatabase = () => {
     const clientIdx = clients.findIndex((val) => val.id === id);
     if (!clientIdx) return null;
 
-    const newClient = Object.assign(clients[clientIdx], update);
+    const newClient = Object.assign({}, clients[clientIdx], update);
     setClients((data) => {
-      data.splice(clientIdx, 1, newClient);
-      return data;
+      const newData = data;
+      newData.splice(clientIdx, 1, newClient);
+      return newData;
     });
 
     return newClient;
