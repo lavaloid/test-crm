@@ -1,4 +1,5 @@
 import { Client } from "./types";
+import dayjs from "dayjs";
 
 const DB_KEY = "clients";
 
@@ -11,7 +12,10 @@ export const getClientList: () => Client[] = () => {
     const data_str = window.localStorage.getItem(DB_KEY);
     if (!data_str) return [];
 
-    return JSON.parse(data_str);
+    return JSON.parse(data_str).map((value: any) => ({
+      ...value,
+      dateCreated: dayjs(value.dateCreated),
+    }));
   } catch (e: any) {
     return null;
   }
@@ -32,4 +36,3 @@ export const saveClientList: (data: Client[]) => boolean = (data) => {
     return false;
   }
 };
-
