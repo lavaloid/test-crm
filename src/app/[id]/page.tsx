@@ -6,6 +6,7 @@ import { StatusType, useClientDatabase } from "@/data";
 import styles from "./page.module.scss";
 import { Loading, Select } from "@/components";
 import dayjs from "dayjs";
+import { placeholderImage } from "./data";
 
 type PageProps = {
   params: { id: string };
@@ -35,7 +36,11 @@ const Page = ({ params }: PageProps) => {
   return (
     <div>
       <Card className={styles.cardContents}>
-        <img className={styles.image} src={avatar} alt={`Avatar for ${name}`} />
+        <img
+          className={styles.image}
+          src={avatar || placeholderImage}
+          alt={`Avatar for ${name}`}
+        />
         <div>
           <h1 className={styles.clientName}>{name}</h1>
           <h2 className={styles.clientOrganization}>{organization}</h2>
