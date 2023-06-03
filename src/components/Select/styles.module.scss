@@ -1,0 +1,9 @@
+.selectItem {
+  padding: 0.5rem 2rem;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background-color: #abcdef;
+  }
+}
