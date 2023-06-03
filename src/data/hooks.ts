@@ -89,7 +89,7 @@ export const useClientDatabase = () => {
 
     const newClient = Object.assign({}, clients[clientIdx], update);
     setClients((data) => {
-      const newData = data;
+      const newData = data.slice();
       newData.splice(clientIdx, 1, newClient);
       console.log(newData);
       return newData;
