@@ -32,6 +32,9 @@ const Page = ({ params }: PageProps) => {
   if (error) {
     return <p>An error occured while loading client info.</p>;
   }
+  if (!name) {
+    return <p>Client not found.</p>;
+  }
 
   return (
     <div>
