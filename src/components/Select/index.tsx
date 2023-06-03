@@ -89,6 +89,7 @@ export const Select = (props: Props) => {
       }
     >
       <Button
+        fill
         role="combobox"
         rightIcon="caret-down"
         elementRef={buttonRef}

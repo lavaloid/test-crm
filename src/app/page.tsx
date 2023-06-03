@@ -1,7 +1,7 @@
 "use client";
 
 import { Client, ClientInput, StatusType, useClientDatabase } from "@/data";
-import { Button, Card, Overlay } from "@blueprintjs/core";
+import { Button, Card, Classes, Overlay } from "@blueprintjs/core";
 import { useMemo, useState } from "react";
 
 import { CreateForm, ListFilters, Table } from "@/components";
@@ -51,7 +51,11 @@ const Page = () => {
         <Button icon="add" intent="primary" onClick={() => setFormOpen(true)}>
           Add Client
         </Button>
-        <Overlay isOpen={formOpen} onClose={() => setFormOpen(false)}>
+        <Overlay
+          isOpen={formOpen}
+          onClose={() => setFormOpen(false)}
+          className={Classes.OVERLAY_SCROLL_CONTAINER}
+        >
           <Card title="Create Client">
             <CreateForm
               onClose={() => setFormOpen(false)}

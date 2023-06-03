@@ -3,6 +3,7 @@ import { Button } from "@blueprintjs/core";
 import { Popover2 } from "@blueprintjs/popover2";
 import dayjs from "dayjs";
 import Calendar from "react-calendar";
+import 'react-calendar/dist/Calendar.css';
 
 import styles from "./styles.module.scss";
 
