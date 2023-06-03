@@ -90,6 +90,7 @@ export const useClientDatabase = () => {
     setClients((data) => {
       const newData = data;
       newData.splice(clientIdx, 1, newClient);
+      console.log(newData);
       return newData;
     });
 
